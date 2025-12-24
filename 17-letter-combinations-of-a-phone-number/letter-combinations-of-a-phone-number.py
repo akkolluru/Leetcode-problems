@@ -4,17 +4,19 @@ class Solution:
     "2":"abc","3":"def","4":"ghi","5":"jkl",
     "6":"mno","7":"pqrs","8":"tuv","9":"wxyz"
     }
-        if digits == "":
+        if digit == "":
             return []
-        answer = []
-
-        def backtrack(index, path):
+        
+        def backtrack(path, index):
             if index == len(digits):
                 answer.append("".join(path))
                 return
+
             for ch in digit[digits[index]]:
                 path.append(ch)
-                backtrack(index + 1, path)
+                backtrack(path, index+1)
                 path.pop()
-        backtrack(0, [])
+        answer = []
+        backtrack([], 0)
         return answer
+        
