@@ -3,18 +3,6 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        def reverse(nums, l, r):
-            while l < r:
-                nums[l], nums[r] = nums[r], nums[l]
-                l += 1
-                r -= 1
-        
-        n = len(nums)
-        k = k % n
-        if n <= 1:
-            return n
-        reverse(nums, 0, n-1)
-
-        reverse(nums, 0, k-1)
-
-        reverse(nums, k, n-1)
+        for i in range(k):
+            nums.insert(0, nums[-1])
+            nums.pop()
